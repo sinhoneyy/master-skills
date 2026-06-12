@@ -28,7 +28,6 @@
 - [Repository layout](#-repository-layout)
 - [Using a skill](#-using-a-skill)
 - [FAQ](#-faq)
-- [Roadmap](#-roadmap)
 - [Contributing](#-contributing)
 - [License](#-license)
 
@@ -180,15 +179,6 @@ flat list designed to be grepped or loaded programmatically.
 **Is the catalog self-contained?**
 Yes. After cloning, everything you need is in `skills/` and the manifest — no network
 access or build step required to use it.
-
----
-
-## 🧭 Roadmap
-
-- [ ] Curated lightweight pack (core domains only)
-- [ ] Manifest validation tooling
-- [ ] Search/filter UI wired to `skills_index.json`
-- [ ] Per-skill content de-duplication (by hash)
 
 ---
 
