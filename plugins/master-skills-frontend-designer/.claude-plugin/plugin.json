@@ -1,0 +1,21 @@
+{
+  "name": "master-skills-frontend-designer",
+  "version": "1.0.0",
+  "description": "Frontend & Design bundle — 227 curated skills (web-frontend, design-ux) for Claude Code, Codex & Antigravity.",
+  "author": {
+    "name": "master-skills",
+    "url": "https://github.com/sinhoneyy/master-skills"
+  },
+  "homepage": "https://github.com/sinhoneyy/master-skills",
+  "repository": "https://github.com/sinhoneyy/master-skills",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "codex",
+    "antigravity",
+    "skills",
+    "bundle",
+    "web-frontend",
+    "design-ux"
+  ]
+}

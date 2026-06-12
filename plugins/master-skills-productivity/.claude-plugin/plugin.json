@@ -1,0 +1,20 @@
+{
+  "name": "master-skills-productivity",
+  "version": "1.0.0",
+  "description": "Productivity & Docs bundle — 52 curated skills (productivity) for Claude Code, Codex & Antigravity.",
+  "author": {
+    "name": "master-skills",
+    "url": "https://github.com/sinhoneyy/master-skills"
+  },
+  "homepage": "https://github.com/sinhoneyy/master-skills",
+  "repository": "https://github.com/sinhoneyy/master-skills",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "codex",
+    "antigravity",
+    "skills",
+    "bundle",
+    "productivity"
+  ]
+}

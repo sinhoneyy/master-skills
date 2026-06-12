@@ -5,7 +5,7 @@
     "url": "https://github.com/sinhoneyy/master-skills"
   },
   "metadata": {
-    "description": "2,658 skills across 15 domains for Claude Code, Codex, and Antigravity — any SKILL.md agent.",
+    "description": "Master Skills — the full catalog plus curated role bundles.",
     "version": "1.0.0"
   },
   "plugins": [
@@ -29,6 +29,220 @@
         "plugin"
       ],
       "source": "./"
+    },
+    {
+      "name": "master-skills-security-engineer",
+      "version": "1.0.0",
+      "description": "Security Engineer bundle — 98 curated skills (security) for Claude Code, Codex & Antigravity.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "codex",
+        "antigravity",
+        "skills",
+        "bundle",
+        "security"
+      ],
+      "source": "./plugins/master-skills-security-engineer"
+    },
+    {
+      "name": "master-skills-frontend-designer",
+      "version": "1.0.0",
+      "description": "Frontend & Design bundle — 227 curated skills (web-frontend, design-ux) for Claude Code, Codex & Antigravity.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "codex",
+        "antigravity",
+        "skills",
+        "bundle",
+        "web-frontend",
+        "design-ux"
+      ],
+      "source": "./plugins/master-skills-frontend-designer"
+    },
+    {
+      "name": "master-skills-backend-engineer",
+      "version": "1.0.0",
+      "description": "Backend & Data bundle — 310 curated skills (backend, data-db) for Claude Code, Codex & Antigravity.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "codex",
+        "antigravity",
+        "skills",
+        "bundle",
+        "backend",
+        "data-db"
+      ],
+      "source": "./plugins/master-skills-backend-engineer"
+    },
+    {
+      "name": "master-skills-devops-cloud",
+      "version": "1.0.0",
+      "description": "DevOps & Cloud bundle — 160 curated skills (devops-cloud) for Claude Code, Codex & Antigravity.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "codex",
+        "antigravity",
+        "skills",
+        "bundle",
+        "devops-cloud"
+      ],
+      "source": "./plugins/master-skills-devops-cloud"
+    },
+    {
+      "name": "master-skills-ai-agent-builder",
+      "version": "1.0.0",
+      "description": "AI & Agents bundle — 388 curated skills (agents, ai-ml, prompt-engineering) for Claude Code, Codex & Antigravity.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "codex",
+        "antigravity",
+        "skills",
+        "bundle",
+        "agents",
+        "ai-ml",
+        "prompt-engineering"
+      ],
+      "source": "./plugins/master-skills-ai-agent-builder"
+    },
+    {
+      "name": "master-skills-marketing-growth",
+      "version": "1.0.0",
+      "description": "Marketing & Growth bundle — 123 curated skills (content-marketing) for Claude Code, Codex & Antigravity.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "codex",
+        "antigravity",
+        "skills",
+        "bundle",
+        "content-marketing"
+      ],
+      "source": "./plugins/master-skills-marketing-growth"
+    },
+    {
+      "name": "master-skills-mobile-developer",
+      "version": "1.0.0",
+      "description": "Mobile Developer bundle — 14 curated skills (mobile) for Claude Code, Codex & Antigravity.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "codex",
+        "antigravity",
+        "skills",
+        "bundle",
+        "mobile"
+      ],
+      "source": "./plugins/master-skills-mobile-developer"
+    },
+    {
+      "name": "master-skills-qa-testing",
+      "version": "1.0.0",
+      "description": "QA & Testing bundle — 53 curated skills (testing) for Claude Code, Codex & Antigravity.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "codex",
+        "antigravity",
+        "skills",
+        "bundle",
+        "testing"
+      ],
+      "source": "./plugins/master-skills-qa-testing"
+    },
+    {
+      "name": "master-skills-productivity",
+      "version": "1.0.0",
+      "description": "Productivity & Docs bundle — 52 curated skills (productivity) for Claude Code, Codex & Antigravity.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "codex",
+        "antigravity",
+        "skills",
+        "bundle",
+        "productivity"
+      ],
+      "source": "./plugins/master-skills-productivity"
+    },
+    {
+      "name": "master-skills-integrations",
+      "version": "1.0.0",
+      "description": "Integrations bundle — 812 curated skills (integrations) for Claude Code, Codex & Antigravity.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "codex",
+        "antigravity",
+        "skills",
+        "bundle",
+        "integrations"
+      ],
+      "source": "./plugins/master-skills-integrations"
     }
   ]
 }

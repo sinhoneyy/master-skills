@@ -1,0 +1,22 @@
+{
+  "name": "master-skills-ai-agent-builder",
+  "version": "1.0.0",
+  "description": "AI & Agents bundle — 388 curated skills (agents, ai-ml, prompt-engineering) for Claude Code, Codex & Antigravity.",
+  "author": {
+    "name": "master-skills",
+    "url": "https://github.com/sinhoneyy/master-skills"
+  },
+  "homepage": "https://github.com/sinhoneyy/master-skills",
+  "repository": "https://github.com/sinhoneyy/master-skills",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "codex",
+    "antigravity",
+    "skills",
+    "bundle",
+    "agents",
+    "ai-ml",
+    "prompt-engineering"
+  ]
+}

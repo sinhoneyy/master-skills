@@ -111,13 +111,35 @@ installs everywhere:
 
 **Antigravity** — add the repo as a plugin source; it reads [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json).
 
-| Platform | Manifest |
-| --- | --- |
-| Claude Code | `.claude-plugin/marketplace.json` + `.claude-plugin/plugin.json` |
-| Codex | `.codex-plugin/plugin.json` |
-| Antigravity | `.agents/plugins/marketplace.json` |
+| Platform | Manifest | Bundles? |
+| --- | --- | --- |
+| Claude Code | `.claude-plugin/marketplace.json` + `plugin.json` | ✅ all-skills + 10 themed |
+| Antigravity | `.agents/plugins/marketplace.json` | ✅ all-skills + 10 themed |
+| Codex | `.codex-plugin/plugin.json` | single full plugin (Codex uses one plugin; filter by `category`) |
 
-All three resolve to the same flat `skills/` tree — 2,658 skills, one install.
+### Themed bundles
+
+Prefer a focused set over all 2,658? Install just the role bundle you need (Claude & Antigravity):
+
+```bash
+/plugin install master-skills-security-engineer@master-skills
+/plugin install master-skills-frontend-designer@master-skills
+```
+
+| Bundle | Skills | Domains |
+| --- | --: | --- |
+| `master-skills-integrations` | 812 | integrations |
+| `master-skills-ai-agent-builder` | 388 | agents · ai-ml · prompt-engineering |
+| `master-skills-backend-engineer` | 310 | backend · data-db |
+| `master-skills-frontend-designer` | 227 | web-frontend · design-ux |
+| `master-skills-devops-cloud` | 160 | devops-cloud |
+| `master-skills-marketing-growth` | 123 | content-marketing |
+| `master-skills-security-engineer` | 98 | security |
+| `master-skills-qa-testing` | 53 | testing |
+| `master-skills-productivity` | 52 | productivity |
+| `master-skills-mobile-developer` | 14 | mobile |
+
+The full `master-skills` plugin (all 2,658) remains installable on its own.
 
 ---
 

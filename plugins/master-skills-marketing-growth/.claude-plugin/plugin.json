@@ -1,0 +1,20 @@
+{
+  "name": "master-skills-marketing-growth",
+  "version": "1.0.0",
+  "description": "Marketing & Growth bundle — 123 curated skills (content-marketing) for Claude Code, Codex & Antigravity.",
+  "author": {
+    "name": "master-skills",
+    "url": "https://github.com/sinhoneyy/master-skills"
+  },
+  "homepage": "https://github.com/sinhoneyy/master-skills",
+  "repository": "https://github.com/sinhoneyy/master-skills",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "codex",
+    "antigravity",
+    "skills",
+    "bundle",
+    "content-marketing"
+  ]
+}
