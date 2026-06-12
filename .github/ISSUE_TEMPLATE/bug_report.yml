@@ -1,0 +1,32 @@
+name: "🐞 Bug / skill issue"
+description: Report a broken skill, bad metadata, or catalog problem
+title: "[bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: input
+    id: skill-id
+    attributes:
+      label: Skill id (if applicable)
+      description: The `id` from skills_index.json, e.g. api-design-principles
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What's wrong?
+      description: Describe the problem — broken content, wrong domain, bad frontmatter, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: false
+  - type: checkboxes
+    id: area
+    attributes:
+      label: Area
+      options:
+        - label: Skill content (SKILL.md)
+        - label: Manifest (skills_index.json)
+        - label: CI / automation
+        - label: Docs (README / CREDITS)

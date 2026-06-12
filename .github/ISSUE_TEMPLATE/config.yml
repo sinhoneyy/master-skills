@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Browse the catalog
+    url: https://github.com/sinhoneyy/master-skills/blob/master/skills_index.json
+    about: Search the full skill index before opening an issue.
+  - name: 💬 Questions & discussion
+    url: https://github.com/sinhoneyy/master-skills/discussions
+    about: For general questions, use Discussions instead of an issue.

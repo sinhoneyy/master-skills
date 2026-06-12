@@ -1,0 +1,54 @@
+name: "➕ New skill request"
+description: Suggest a new skill to add to the catalog
+title: "[new-skill]: "
+labels: ["new-skill", "needs-triage"]
+body:
+  - type: input
+    id: skill-name
+    attributes:
+      label: Skill name
+      placeholder: e.g. Stripe Webhook Handler
+    validations:
+      required: true
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Domain
+      description: Which domain does it belong to?
+      options:
+        - integrations
+        - general
+        - backend
+        - prompt-engineering
+        - devops-cloud
+        - agents
+        - web-frontend
+        - content-marketing
+        - security
+        - design-ux
+        - data-db
+        - testing
+        - productivity
+        - ai-ml
+        - mobile
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What should it do?
+      description: A clear, one-paragraph description of the skill's purpose.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source (optional)
+      description: Link to an existing SKILL.md or repo, if any.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched skills_index.json and this skill doesn't already exist
+          required: true
