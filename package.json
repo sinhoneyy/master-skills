@@ -1,0 +1,31 @@
+{
+  "name": "@sinhoneyy/master-skills",
+  "version": "1.0.0",
+  "description": "Unified skill library for Claude, Codex, Cursor, Antigravity & AI agents — 2,658 skills across 15 domains",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sinhoneyy/master-skills.git"
+  },
+  "homepage": "https://github.com/sinhoneyy/master-skills#readme",
+  "keywords": [
+    "claude",
+    "codex",
+    "cursor",
+    "antigravity",
+    "ai-agents",
+    "skills",
+    "skill-md",
+    "prompt-engineering"
+  ],
+  "files": [
+    "skills/",
+    "skills_index.json",
+    "CREDITS.md",
+    "README.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  }
+}
