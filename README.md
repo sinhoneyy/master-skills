@@ -1,3 +1,5 @@
+<a name="top"></a>
+
 <div align="center">
 
 <br />
@@ -242,6 +244,6 @@ upstream licenses — full notices live in [`CREDITS.md`](CREDITS.md).
 <sub>Built as one unified catalog. No dependencies. No lock-in.</sub>
 <br/><br/>
 
-**[⬆ back to top](#)**
+**[⬆ back to top](#top)**
 
 </div>
