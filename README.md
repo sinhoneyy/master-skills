@@ -16,6 +16,7 @@
 
 [![CI](https://github.com/sinhoneyy/master-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/sinhoneyy/master-skills/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/sinhoneyy/master-skills?style=flat-square&color=f97316)](https://github.com/sinhoneyy/master-skills/releases)
+[![Package](https://img.shields.io/badge/npm-%40sinhoneyy%2Fmaster--skills-cb3837?style=flat-square&logo=npm)](https://github.com/sinhoneyy/master-skills/packages)
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=flat-square)](#-license)
 [![Skills](https://img.shields.io/badge/skills-2%2C658-3b82f6?style=flat-square)](skills_index.json)
 [![Domains](https://img.shields.io/badge/domains-15-f59e0b?style=flat-square)](#-the-15-domains)
@@ -73,6 +74,23 @@ npx skills add sinhoneyy/master-skills
 git clone https://github.com/sinhoneyy/master-skills.git
 # then load the skills/ directory in your agent's skill loader
 ```
+
+**Option 3 — install as an npm package** (published to GitHub Packages as
+[`@sinhoneyy/master-skills`](https://github.com/sinhoneyy/master-skills/packages)):
+
+```bash
+# 1. tell npm where the @sinhoneyy scope lives
+echo "@sinhoneyy:registry=https://npm.pkg.github.com" >> .npmrc
+
+# 2. install
+npm install @sinhoneyy/master-skills
+```
+
+> ℹ️ GitHub Packages' npm registry requires authentication **even for public packages**.
+> Add a GitHub token with `read:packages` to your `~/.npmrc`:
+> `//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN`
+
+A new package version is published automatically on every GitHub Release.
 
 No build step, no install graph — it's a **static catalog**. ✅
 
