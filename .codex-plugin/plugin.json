@@ -1,0 +1,34 @@
+{
+  "name": "master-skills",
+  "version": "1.0.0",
+  "description": "2,658 skills across 15 domains for Claude Code, Codex, and Antigravity — any SKILL.md agent.",
+  "author": {
+    "name": "master-skills",
+    "url": "https://github.com/sinhoneyy/master-skills"
+  },
+  "homepage": "https://github.com/sinhoneyy/master-skills",
+  "repository": "https://github.com/sinhoneyy/master-skills",
+  "license": "MIT",
+  "keywords": [
+    "openai-codex",
+    "codex-plugin",
+    "claude-code",
+    "antigravity",
+    "agent-skills",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "type": "cli",
+    "displayName": "Master Skills",
+    "shortDescription": "2,658 skills across 15 domains for AI coding agents",
+    "longDescription": "2,658 skills across 15 domains for Claude Code, Codex, and Antigravity — any SKILL.md agent.",
+    "category": "Coding",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/sinhoneyy/master-skills",
+    "brandColor": "#34d399"
+  }
+}

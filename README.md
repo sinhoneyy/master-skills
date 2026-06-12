@@ -96,37 +96,28 @@ No build step, no install graph — it's a **static catalog**. ✅
 
 ---
 
-## 🧩 Use as Claude Code plugins
+## 🧩 Install as a plugin (Claude · Codex · Antigravity)
 
-Every domain is also a **Claude Code plugin**. Add the marketplace once, then install
-only the domains you want — so you load 98 security skills *or* 143 frontend skills, not all 2,658:
+Master Skills ships as **one plugin** with a manifest for each platform, so the same catalog
+installs everywhere:
 
+**Claude Code**
 ```bash
 /plugin marketplace add sinhoneyy/master-skills
-/plugin install master-skills-security@master-skills
-/plugin install master-skills-web-frontend@master-skills
+/plugin install master-skills@master-skills
 ```
 
-<details>
-<summary><b>All 15 plugins</b></summary>
+**Codex** — point Codex at the repo; it reads [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json) (`skills → ./skills/`).
 
-<br/>
+**Antigravity** — add the repo as a plugin source; it reads [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json).
 
-| Plugin | Skills | | Plugin | Skills |
-| --- | --: | --- | --- | --: |
-| `master-skills-integrations` | 812 | | `master-skills-design-ux` | 84 |
-| `master-skills-general` | 421 | | `master-skills-data-db` | 77 |
-| `master-skills-backend` | 233 | | `master-skills-testing` | 53 |
-| `master-skills-prompt-engineering` | 193 | | `master-skills-productivity` | 52 |
-| `master-skills-devops-cloud` | 160 | | `master-skills-ai-ml` | 41 |
-| `master-skills-agents` | 154 | | `master-skills-mobile` | 14 |
-| `master-skills-web-frontend` | 143 | | | |
-| `master-skills-content-marketing` | 123 | | | |
-| `master-skills-security` | 98 | | | |
+| Platform | Manifest |
+| --- | --- |
+| Claude Code | `.claude-plugin/marketplace.json` + `.claude-plugin/plugin.json` |
+| Codex | `.codex-plugin/plugin.json` |
+| Antigravity | `.agents/plugins/marketplace.json` |
 
-Defined in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json).
-
-</details>
+All three resolve to the same flat `skills/` tree — 2,658 skills, one install.
 
 ---
 
@@ -193,7 +184,7 @@ A single JSON document, [`skills_index.json`](skills_index.json), describes the 
 | `category` | string | Assigned domain |
 | `tags` | string[] | Tags, if any |
 | `trigger` | string | Slash trigger, `/`+id |
-| `path` | string | `skills/<domain>/<id>` |
+| `path` | string | `skills/<id>` |
 
 </details>
 
@@ -211,7 +202,7 @@ A single JSON document, [`skills_index.json`](skills_index.json), describes the 
       "description": "Guidelines for designing clean, consistent APIs…",
       "category": "backend",
       "trigger": "/api-design-principles",
-      "path": "skills/backend/api-design-principles"
+      "path": "skills/api-design-principles"
     }
   ]
 }
@@ -223,11 +214,14 @@ A single JSON document, [`skills_index.json`](skills_index.json), describes the 
 
 ```
 master-skills/
-├─ 📂 skills/                    # the library, grouped by domain
-│   ├─ integrations/<id>/SKILL.md
-│   ├─ backend/<id>/SKILL.md
-│   └─ …                         # 15 domains
-├─ 🗂️ skills_index.json          # the manifest
+├─ 📂 skills/                    # 2,658 skills, flat (domain lives in the manifest)
+│   ├─ api-design-principles/SKILL.md
+│   ├─ adversarial-reviewer/SKILL.md
+│   └─ …
+├─ 🧩 .claude-plugin/            # Claude Code plugin + marketplace manifest
+├─ 🧩 .codex-plugin/             # Codex plugin manifest
+├─ 🧩 .agents/plugins/           # Antigravity marketplace manifest
+├─ 🗂️ skills_index.json          # the manifest (id, version, category, trigger, path)
 ├─ 📜 CREDITS.md                  # license/source notes + full upstream notices
 └─ 📖 README.md
 ```
@@ -238,7 +232,7 @@ master-skills/
 
 ```
 1.  Find it      →  search skills_index.json by id / trigger / category
-2.  Open it      →  go to its "path", e.g. skills/backend/api-design-principles/
+2.  Open it      →  go to its "path", e.g. skills/api-design-principles/
 3.  Invoke it    →  use its "trigger" (/api-design-principles) in your agent
 ```
 
@@ -277,7 +271,7 @@ network access or build step required to use it.
 
 PRs are welcome! Good first contributions:
 
-- ➕ Add new skills under the right `skills/<domain>/` folder
+- ➕ Add new skills as `skills/<id>/SKILL.md` (set the domain via frontmatter)
 - 🏷️ Improve domain classification so fewer skills land in `general`
 - 🧪 Add manifest validation or search tooling
 
