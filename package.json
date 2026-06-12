@@ -1,7 +1,11 @@
 {
-  "name": "@sinhoneyy/master-skills",
+  "name": "master-skills",
   "version": "1.0.0",
-  "description": "Unified skill library for Claude, Codex, Cursor, Antigravity & AI agents — 2,658 skills across 15 domains",
+  "description": "Install 2,658 AI-agent skills into Claude, Cursor, Gemini, Codex, Antigravity, Kiro and more — one command, 15 domains.",
+  "type": "module",
+  "bin": {
+    "master-skills": "./bin/cli.mjs"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -12,20 +16,22 @@
     "claude",
     "codex",
     "cursor",
+    "gemini",
     "antigravity",
+    "kiro",
     "ai-agents",
     "skills",
     "skill-md",
     "prompt-engineering"
   ],
+  "engines": {
+    "node": ">=18"
+  },
   "files": [
+    "bin/",
     "skills/",
     "skills_index.json",
     "CREDITS.md",
     "README.md"
-  ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "public"
-  }
+  ]
 }

@@ -16,7 +16,7 @@
 
 [![CI](https://github.com/sinhoneyy/master-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/sinhoneyy/master-skills/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/sinhoneyy/master-skills?style=flat-square&color=f97316)](https://github.com/sinhoneyy/master-skills/releases)
-[![Package](https://img.shields.io/badge/npm-%40sinhoneyy%2Fmaster--skills-cb3837?style=flat-square&logo=npm)](https://github.com/sinhoneyy/master-skills/packages)
+[![npm](https://img.shields.io/npm/v/master-skills?style=flat-square&color=cb3837&logo=npm)](https://www.npmjs.com/package/master-skills)
 [![License](https://img.shields.io/badge/license-MIT-22c55e?style=flat-square)](#-license)
 [![Skills](https://img.shields.io/badge/skills-2%2C658-3b82f6?style=flat-square)](skills_index.json)
 [![Domains](https://img.shields.io/badge/domains-15-f59e0b?style=flat-square)](#-the-15-domains)
@@ -60,39 +60,35 @@ manifest: [`skills_index.json`](skills_index.json).
 
 ---
 
-## ⚡ Install
+## ⚡ Install — choose your tool
 
-**Option 1 — one command:**
+One command installs the skills into the path your host expects:
+
+| Tool | Install | First use |
+| --- | --- | --- |
+| **Claude Code** | `npx master-skills --claude` | `/<skill> …` (or the Claude plugin marketplace) |
+| **Cursor** | `npx master-skills --cursor` | `@<skill> …` |
+| **Gemini CLI** | `npx master-skills --gemini` | `Use <skill> to …` |
+| **Codex CLI** | `npx master-skills --codex` | `Use <skill> to …` |
+| **Antigravity IDE** | `npx master-skills --antigravity` | `@<skill> …` |
+| **Antigravity CLI (agy)** | `npx master-skills --agy` | `/<skill> …` |
+| **Kiro** | `npx master-skills --kiro` | `@<skill> …` |
+| **OpenCode** | `npx master-skills --opencode` | `opencode run @<skill> …` |
+| **AdaL CLI** | `npx master-skills --adal` | `Use <skill> to …` |
+| **Custom path** | `npx master-skills --path ./my-skills` | depends on your tool |
+
+Filter what gets installed:
 
 ```bash
-npx skills add sinhoneyy/master-skills
+npx master-skills --claude --category security,backend   # only those domains
+npx master-skills --cursor --risk safe,none              # only low-risk skills
+npx master-skills --list                                 # show all categories
+npx master-skills --path ./skills --dry-run              # preview, write nothing
 ```
 
-**Option 2 — clone & point your agent at the folder:**
+> Default tool paths are best-effort — if your host stores skills elsewhere, use `--path`.
 
-```bash
-git clone https://github.com/sinhoneyy/master-skills.git
-# then load the skills/ directory in your agent's skill loader
-```
-
-**Option 3 — install as an npm package** (published to GitHub Packages as
-[`@sinhoneyy/master-skills`](https://github.com/sinhoneyy/master-skills/packages)):
-
-```bash
-# 1. tell npm where the @sinhoneyy scope lives
-echo "@sinhoneyy:registry=https://npm.pkg.github.com" >> .npmrc
-
-# 2. install
-npm install @sinhoneyy/master-skills
-```
-
-> ℹ️ GitHub Packages' npm registry requires authentication **even for public packages**.
-> Add a GitHub token with `read:packages` to your `~/.npmrc`:
-> `//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN`
-
-A new package version is published automatically on every GitHub Release.
-
-No build step, no install graph — it's a **static catalog**. ✅
+Or clone and point your agent's loader at `skills/` directly. No build step, no dependencies. ✅
 
 ---
 

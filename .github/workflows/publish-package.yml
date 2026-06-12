@@ -1,4 +1,4 @@
-name: Publish Package
+name: Publish to npm
 
 on:
   release:
@@ -7,11 +7,10 @@ on:
 
 permissions:
   contents: read
-  packages: write
 
 jobs:
   publish:
-    name: Publish to GitHub Packages
+    name: Publish master-skills to npmjs.com
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,10 +18,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@sinhoneyy"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Publish
-        run: npm publish
+        run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
