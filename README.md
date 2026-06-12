@@ -96,6 +96,40 @@ No build step, no install graph — it's a **static catalog**. ✅
 
 ---
 
+## 🧩 Use as Claude Code plugins
+
+Every domain is also a **Claude Code plugin**. Add the marketplace once, then install
+only the domains you want — so you load 98 security skills *or* 143 frontend skills, not all 2,658:
+
+```bash
+/plugin marketplace add sinhoneyy/master-skills
+/plugin install master-skills-security@master-skills
+/plugin install master-skills-web-frontend@master-skills
+```
+
+<details>
+<summary><b>All 15 plugins</b></summary>
+
+<br/>
+
+| Plugin | Skills | | Plugin | Skills |
+| --- | --: | --- | --- | --: |
+| `master-skills-integrations` | 812 | | `master-skills-design-ux` | 84 |
+| `master-skills-general` | 421 | | `master-skills-data-db` | 77 |
+| `master-skills-backend` | 233 | | `master-skills-testing` | 53 |
+| `master-skills-prompt-engineering` | 193 | | `master-skills-productivity` | 52 |
+| `master-skills-devops-cloud` | 160 | | `master-skills-ai-ml` | 41 |
+| `master-skills-agents` | 154 | | `master-skills-mobile` | 14 |
+| `master-skills-web-frontend` | 143 | | | |
+| `master-skills-content-marketing` | 123 | | | |
+| `master-skills-security` | 98 | | | |
+
+Defined in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json).
+
+</details>
+
+---
+
 ## 🗂 The 15 domains
 
 <div align="center">

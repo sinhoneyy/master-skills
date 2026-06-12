@@ -1,0 +1,283 @@
+{
+  "name": "master-skills",
+  "owner": {
+    "name": "master-skills",
+    "url": "https://github.com/sinhoneyy/master-skills"
+  },
+  "metadata": {
+    "description": "2,658 skills across 15 domains as Claude Code plugins — one per domain.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "master-skills-agents",
+      "version": "1.0.0",
+      "description": "154 agents skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "agents"
+      ],
+      "source": "./plugins/master-skills-agents"
+    },
+    {
+      "name": "master-skills-ai-ml",
+      "version": "1.0.0",
+      "description": "41 ai-ml skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "ai-ml"
+      ],
+      "source": "./plugins/master-skills-ai-ml"
+    },
+    {
+      "name": "master-skills-backend",
+      "version": "1.0.0",
+      "description": "233 backend skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "backend"
+      ],
+      "source": "./plugins/master-skills-backend"
+    },
+    {
+      "name": "master-skills-content-marketing",
+      "version": "1.0.0",
+      "description": "123 content-marketing skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "content-marketing"
+      ],
+      "source": "./plugins/master-skills-content-marketing"
+    },
+    {
+      "name": "master-skills-data-db",
+      "version": "1.0.0",
+      "description": "77 data-db skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "data-db"
+      ],
+      "source": "./plugins/master-skills-data-db"
+    },
+    {
+      "name": "master-skills-design-ux",
+      "version": "1.0.0",
+      "description": "84 design-ux skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "design-ux"
+      ],
+      "source": "./plugins/master-skills-design-ux"
+    },
+    {
+      "name": "master-skills-devops-cloud",
+      "version": "1.0.0",
+      "description": "160 devops-cloud skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "devops-cloud"
+      ],
+      "source": "./plugins/master-skills-devops-cloud"
+    },
+    {
+      "name": "master-skills-general",
+      "version": "1.0.0",
+      "description": "421 general skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "general"
+      ],
+      "source": "./plugins/master-skills-general"
+    },
+    {
+      "name": "master-skills-integrations",
+      "version": "1.0.0",
+      "description": "812 integrations skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "integrations"
+      ],
+      "source": "./plugins/master-skills-integrations"
+    },
+    {
+      "name": "master-skills-mobile",
+      "version": "1.0.0",
+      "description": "14 mobile skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "mobile"
+      ],
+      "source": "./plugins/master-skills-mobile"
+    },
+    {
+      "name": "master-skills-productivity",
+      "version": "1.0.0",
+      "description": "52 productivity skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "productivity"
+      ],
+      "source": "./plugins/master-skills-productivity"
+    },
+    {
+      "name": "master-skills-prompt-engineering",
+      "version": "1.0.0",
+      "description": "193 prompt-engineering skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "prompt-engineering"
+      ],
+      "source": "./plugins/master-skills-prompt-engineering"
+    },
+    {
+      "name": "master-skills-security",
+      "version": "1.0.0",
+      "description": "98 security skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "security"
+      ],
+      "source": "./plugins/master-skills-security"
+    },
+    {
+      "name": "master-skills-testing",
+      "version": "1.0.0",
+      "description": "53 testing skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "testing"
+      ],
+      "source": "./plugins/master-skills-testing"
+    },
+    {
+      "name": "master-skills-web-frontend",
+      "version": "1.0.0",
+      "description": "143 web-frontend skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+      "author": {
+        "name": "master-skills",
+        "url": "https://github.com/sinhoneyy/master-skills"
+      },
+      "homepage": "https://github.com/sinhoneyy/master-skills",
+      "repository": "https://github.com/sinhoneyy/master-skills",
+      "license": "MIT",
+      "keywords": [
+        "claude-code",
+        "skills",
+        "web-frontend"
+      ],
+      "source": "./plugins/master-skills-web-frontend"
+    }
+  ]
+}

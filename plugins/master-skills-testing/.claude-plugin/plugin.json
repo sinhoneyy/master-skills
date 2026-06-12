@@ -1,0 +1,19 @@
+{
+  "name": "master-skills-testing",
+  "version": "1.0.0",
+  "description": "53 testing skills for Claude Code, Codex, Cursor, Antigravity and any SKILL.md agent.",
+  "author": {
+    "name": "master-skills",
+    "url": "https://github.com/sinhoneyy/master-skills"
+  },
+  "homepage": "https://github.com/sinhoneyy/master-skills",
+  "repository": "https://github.com/sinhoneyy/master-skills",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "skills",
+    "agentic-skills",
+    "plugin",
+    "testing"
+  ]
+}
