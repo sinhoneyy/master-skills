@@ -13,6 +13,7 @@ Please keep this file intact.
 | https://github.com/sickn33/antigravity-awesome-skills | MIT (see below) |
 | https://github.com/nidhinjs/prompt-master | MIT (see below) |
 | https://github.com/ComposioHQ/awesome-claude-skills | No license file published upstream — see repository |
+| https://github.com/hashgraph-online/hol-guard-plugin | Apache-2.0 (bundled at `skills/hol-guard/LICENSE`) |
 
 > ⚠️ **ComposioHQ/awesome-claude-skills** did not publish a license file. Without an
 > explicit license, redistribution rights are not formally granted. If you publish this
@@ -97,3 +98,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## hashgraph-online/hol-guard-plugin
+
+The HOL Guard skill is adapted from the upstream Agent Skill. Its Apache-2.0 license is bundled verbatim at `skills/hol-guard/LICENSE`.
+
