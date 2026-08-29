@@ -26,10 +26,10 @@ Use HOL Guard when a user wants a local enforcement boundary around a supported 
 
 ## Instructions
 
-1. Check whether HOL Guard is installed without reading secrets:
+1. Check whether HOL Guard is installed without reading secrets using a cross-platform direct CLI probe:
 
    ```bash
-   command -v hol-guard
+   hol-guard --version
    ```
 
    If it is missing and the user requested runtime setup, prefer the isolated CLI install:
@@ -66,12 +66,12 @@ Use HOL Guard when a user wants a local enforcement boundary around a supported 
 
    ```bash
    hol-guard approvals
-   hol-guard approvals open
+   hol-guard approvals open <request-id>
    hol-guard receipts
    hol-guard diff <harness>
    ```
 
-   Approval or denial must remain an explicit user decision after the risk reason and requested scope are understood.
+   Use the pending request ID returned by `hol-guard approvals`; do not invent an ID. Approval or denial must remain an explicit user decision after the risk reason and requested scope are understood.
 
 6. Verify the resulting protection state with Guard-owned evidence:
 
