@@ -1,0 +1,4 @@
+# Never ship interpreter-generated caches in skill packages.
+**/__pycache__/
+**/*.pyc
+**/*.pyo

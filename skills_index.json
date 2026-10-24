@@ -29,7 +29,7 @@
     "mobile": 14,
     "productivity": 52,
     "prompt-engineering": 193,
-    "security": 98,
+    "security": 99,
     "testing": 53,
     "web-frontend": 143
   },
@@ -878,6 +878,17 @@
       "trigger": "/helm-chart-builder",
       "source": "alirezarezvani/claude-skills",
       "path": "skills/helm-chart-builder"
+    },
+    {
+      "id": "hol-guard",
+      "name": "hol-guard",
+      "version": "1.0.0",
+      "description": "Install and use HOL Guard as a local pre-execution safety boundary for supported AI coding-agent harnesses, with explicit approval, receipt, and verification flows.",
+      "category": "security",
+      "tags": [],
+      "trigger": "/hol-guard",
+      "source": "hashgraph-online/hol-guard-plugin",
+      "path": "skills/hol-guard"
     },
     {
       "id": "hosted-agents",

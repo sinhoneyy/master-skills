@@ -293,15 +293,29 @@ PRs are welcome! Good first contributions:
 - 🏷️ Improve domain classification so fewer skills land in `general`
 - 🧪 Add manifest validation or search tooling
 
-> Every PR is automatically checked: the manifest is validated against the tree, and changed
-> `SKILL.md` files are linted for structure — results posted right on your PR.
+> Once GitHub Actions is approved (when required for first-time fork contributors), CI
+> validates the manifest and lints changed `SKILL.md` files. Lint results appear
+> in the Actions job summary. Comments are not posted by CI.
 
 ---
 
 ## 📜 License
 
-The Master Skills catalog tooling is **MIT-licensed**. Bundled skills retain their original
-upstream licenses — full notices live in [`CREDITS.md`](CREDITS.md).
+The Master Skills catalog tooling is **MIT-licensed**. The root `package.json`
+license field covers the catalog tooling; it **does not relicense** third-party
+skills. Bundled skills retain their own upstream terms. Consult each skill's
+nested LICENSE/notice where present and the source attribution in
+[`CREDITS.md`](CREDITS.md).
+
+### Source imports and compatibility
+
+A new skill in the source index is **not** automatically an endorsement,
+published npm release, or proof that every agent host supports it. CI checks
+repository structure and, for supported imports, bundled examples plus an
+isolated local npm package/install smoke test. Host-specific behavior and
+external services require separate verification and any necessary user
+authorization. Fork PR lint results are always available in the GitHub Actions
+job summary. Lint reporting uses no PR-comment API or write token.
 
 <div align="center">
 <br/>
