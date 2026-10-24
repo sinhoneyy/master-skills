@@ -1,3 +1,8 @@
+---
+name: sample-text-processor
+description: Reference skill for text analysis, transformations, and skill-tester validation.
+---
+
 # Sample Text Processor
 
 ---

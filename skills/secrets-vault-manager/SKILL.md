@@ -13,6 +13,14 @@ description: "Use when the user asks to set up secret management infrastructure,
 
 ## Overview
 
+### Authorization boundary
+
+Identify the authorized vault, tenant, identities, and secret paths before access.
+Do not retrieve secret values for a metadata-only audit. Rotation, revocation,
+access-policy changes, and recovery operations require explicit user authorization
+for the affected systems, including emergency response. Existing scoped approval
+applies. Keep raw values out of logs, chat, reports, and unapproved destinations.
+
 Production secret infrastructure management for teams running HashiCorp Vault, cloud-native secret stores, or hybrid architectures. This skill covers policy authoring, auth method configuration, automated rotation, dynamic secrets, audit logging, and incident response.
 
 **Distinct from env-secrets-manager** which handles local `.env` file hygiene and leak detection. This skill operates at the infrastructure layer — Vault clusters, cloud KMS, certificate authorities, and CI/CD secret injection.

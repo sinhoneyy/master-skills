@@ -18,6 +18,7 @@ import fs from 'fs';
 import net from 'net';
 import path from 'path';
 import { platform, homedir } from 'os';
+import { runStitch } from './stitch-data.mjs';
 
 // ─── Argument parsing ───────────────────────────────────────────────────────
 
@@ -427,22 +428,23 @@ async function captureFullPage({ sid, outputFile, width, devicePixelRatio, css }
 
     // Stitch tiles using Python PIL (available on macOS)
     console.log(`Stitching ${tiles.length} tiles (${width}x${finalH})...`);
-    const { execSync } = await import('child_process');
     const stitchScriptPath = outputFile.replace(/\.png$/, '_stitch.py');
     const stitchScript = [
       'from PIL import Image',
-      `tiles = [${tiles.map(t => `("${t.path}", ${t.y})`).join(',')}]`,
+      'import json, sys',
+      'data = json.loads(sys.argv[1])',
+      'tiles = data["tiles"]',
       `out = Image.new("RGB", (${width * devicePixelRatio}, ${finalH * devicePixelRatio}))`,
       'for path, y in tiles:',
       '    tile = Image.open(path)',
       `    out.paste(tile, (0, y * ${devicePixelRatio}))`,
       '    tile.close()',
-      `out.save("${outputFile}")`,
+      'out.save(data["output"])',
       'print(f"Stitched: {out.size[0]}x{out.size[1]}")',
     ].join('\n');
     fs.writeFileSync(stitchScriptPath, stitchScript);
     try {
-      const result = execSync(`python3 "${stitchScriptPath}"`, { encoding: 'utf-8', timeout: 60000 });
+      const result = runStitch(stitchScriptPath, outputFile, tiles.map(t => [t.path, t.y]));
       console.log(result.trim());
     } catch (e) {
       // Fallback: if Python/PIL not available, keep tiles as separate files
@@ -769,9 +771,9 @@ async function captureViaProxy(targetId, outputFile, width, devicePixelRatio) {
     } else {
       // Stitch tiles
       console.log(`Stitching ${tiles.length} tiles...`);
-      const { execSync } = await import('child_process');
+      const { execFileSync } = await import('node:child_process');
 
-      const sipsOut = execSync(`sips -g pixelWidth -g pixelHeight "${tiles[0].path}"`, { encoding: 'utf-8' });
+      const sipsOut = execFileSync('sips', ['-g', 'pixelWidth', '-g', 'pixelHeight', path.resolve(tiles[0].path)], { encoding: 'utf-8' });
       const pxW = parseInt(sipsOut.match(/pixelWidth:\s*(\d+)/)?.[1] || '0');
       const pxH = parseInt(sipsOut.match(/pixelHeight:\s*(\d+)/)?.[1] || '0');
       const dpr = pxH / vpH;
@@ -801,7 +803,9 @@ async function captureViaProxy(targetId, outputFile, width, devicePixelRatio) {
       const stitchScriptPath = outputFile.replace(/\.png$/, '_stitch.py');
       const stitchLines = [
         'from PIL import Image',
-        `tiles = [${tiles.map(t => `"${t.path}"`).join(',')}]`,
+        'import json, sys',
+        'data = json.loads(sys.argv[1])',
+        'tiles = data["tiles"]',
         'imgs = [Image.open(p) for p in tiles]',
         'tile_w, tile_h = imgs[0].size',
         `container_top = ${pxContainerTop}`,
@@ -828,12 +832,12 @@ async function captureViaProxy(targetId, outputFile, width, devicePixelRatio) {
         '    out.paste(footer, (0, out_h - footer_h))',
         'for img in imgs:',
         '    img.close()',
-        `out.save("${outputFile}")`,
+        'out.save(data["output"])',
         'print(f"Stitched: {out.size[0]}x{out.size[1]}")',
       ];
       fs.writeFileSync(stitchScriptPath, stitchLines.join('\n'));
       try {
-        const result = execSync(`python3 "${stitchScriptPath}"`, { encoding: 'utf-8', timeout: 60000 });
+        const result = runStitch(stitchScriptPath, outputFile, tiles.map(t => t.path));
         console.log(result.trim());
       } catch (e) {
         console.warn('Stitching failed:', e.message?.slice(0, 200));

@@ -1,0 +1,8 @@
+/audit-input/
+__pycache__/
+*.py[cod]
+node_modules/
+*.tgz
+/lint-report.md
+/.env
+/.env.local

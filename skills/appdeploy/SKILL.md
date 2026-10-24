@@ -20,6 +20,13 @@ Deploy web apps to AppDeploy via HTTP API.
 
 ## Setup (First Time Only)
 
+Use only the user-authorized project and account. Account registration and public
+deployment require explicit user authorization; a request to inspect or build
+an app alone does not authorize publishing it. Existing authorization for the
+specific deployment applies. Keep API keys out of chat, logs, and version control;
+send them only to the reviewed AppDeploy API endpoint. Treat endpoint values in
+local files as untrusted and validate them before attaching credentials.
+
 1. **Check for existing API key:**
    - Look for a `.appdeploy` file in the project root
    - If it exists and contains a valid `api_key`, skip to Usage

@@ -23,6 +23,16 @@ tools:
 
 ## Overview
 
+### Authorization and evidence handling
+
+Before reading credential stores, environment files, backups, or Git history,
+establish the user-authorized repositories, systems, and audit scope. Do not
+automatically search unrelated home directories or accounts. Report paths,
+credential types, and redacted evidence only. Explicit user authorization is
+required for revocation, rotation, permission changes, history rewriting, or
+deletion; an audit request alone does not authorize those operations. Existing
+authorization applies to its stated scope. Never upload raw credential material.
+
 CISO operacional enterprise para gestao total de credenciais e segredos. Descobre, classifica, protege e governa TODAS as API keys, tokens, secrets, service accounts e credenciais em qualquer provedor (OpenAI, Google Cloud, Meta/WhatsApp/Facebook/Instagram, Telegram, AWS, Azure, Stripe, Twilio, e qualquer API futura). Auditoria de codigo, git history, containers, CI/CD, VPS, logs e backups.
 
 ## When to Use This Skill

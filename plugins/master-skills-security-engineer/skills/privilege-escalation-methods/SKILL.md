@@ -15,6 +15,11 @@ Provide comprehensive techniques for escalating privileges from a low-privileged
 
 ## Inputs/Prerequisites
 
+- Written authorization must specify target systems and allowed techniques.
+  Credential access, persistence, privilege changes, and destructive tests need
+  explicit scope; ordinary diagnostic access does not authorize exploitation.
+  Use disposable lab targets and synthetic credentials when demonstrating commands.
+
 - Initial low-privilege shell access on target system
 - Kali Linux or penetration testing distribution
 - Tools: Mimikatz, PowerView, PowerUpSQL, Responder, Impacket, Rubeus

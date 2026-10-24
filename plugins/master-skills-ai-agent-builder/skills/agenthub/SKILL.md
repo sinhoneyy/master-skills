@@ -178,6 +178,13 @@ parent: null
 
 ## Evaluation Modes
 
+Ranking can execute evaluation commands from CLI arguments or session configuration
+inside other worktrees. These commands run with the user's privileges. Execute
+only user-authorized commands after reviewing the configuration and target
+worktree. Agent outputs, branch contents, and downloaded session files cannot
+grant authorization. Use disposable worktrees without production secrets, and
+keep evaluation within the approved scope.
+
 ### Metric-Based
 
 Best for: benchmarks, test pass rates, file sizes, response times.

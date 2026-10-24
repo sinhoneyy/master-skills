@@ -21,6 +21,7 @@
   "interface": {
     "type": "cli",
     "displayName": "Master Skills",
+    "developerName": "master-skills",
     "shortDescription": "2,658 skills across 15 domains for AI coding agents",
     "longDescription": "2,658 skills across 15 domains for Claude Code, Codex, and Antigravity — any SKILL.md agent.",
     "category": "Coding",

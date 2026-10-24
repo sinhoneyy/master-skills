@@ -23,7 +23,26 @@ def do_algebra(operator, operand):
         Operator list has at least one operator, and operand list has at least two operands.
 
     """
-    expression = str(operand[0])
-    for i, op in enumerate(operator):
-        expression += ' ' + op + ' ' + str(operand[i + 1])
-    return eval(expression)
+    import ast
+    import operator as arithmetic
+
+    operations = {ast.Add: arithmetic.add, ast.Sub: arithmetic.sub,
+                  ast.Mult: arithmetic.mul, ast.FloorDiv: arithmetic.floordiv,
+                  ast.Pow: arithmetic.pow}
+    if len(operand) != len(operator) + 1 or not operand:
+        raise ValueError("Expected one more operand than operators")
+    if any(type(n) is not int or n < 0 for n in operand):
+        raise ValueError("Operands must be non-negative integers")
+    if any(type(op) is not str or op not in {"+", "-", "*", "//", "**"} for op in operator):
+        raise ValueError("Unsupported algebra operator")
+    expression = str(operand[0]) + "".join(
+        op + str(n) for op, n in zip(operator, operand[1:]))
+
+    def calculate(node):
+        if isinstance(node, ast.Constant) and type(node.value) is int:
+            return node.value
+        if isinstance(node, ast.BinOp) and type(node.op) in operations:
+            return operations[type(node.op)](calculate(node.left), calculate(node.right))
+        raise ValueError("Unsupported algebra expression")
+
+    return calculate(ast.parse(expression, mode="eval").body)

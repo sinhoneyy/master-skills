@@ -1,0 +1,8 @@
+Master Skills role bundle licensing
+
+The bundle manifests and Master Skills catalog tooling use the MIT license
+reproduced at ../../LICENSE. This notice does not license or relicense the
+third-party skills in this bundle. Each skill retains its upstream terms and
+notices. See ../../CREDITS.md and ../../skills_index.json for attribution;
+follow each skill's nested LICENSE when present. Missing upstream permission
+is not supplied by this notice.
