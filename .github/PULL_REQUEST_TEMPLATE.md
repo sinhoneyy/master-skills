@@ -14,9 +14,11 @@
 
 ## Checklist
 
-- [ ] Each new skill lives under `skills/<domain>/<id>/SKILL.md`
+- [ ] Each new skill lives under `skills/<id>/SKILL.md` (category belongs in `skills_index.json`)
 - [ ] Every `SKILL.md` has frontmatter with non-empty `name` and `description`
 - [ ] I'm not duplicating an existing skill (checked `skills_index.json`)
 - [ ] Attribution is preserved (no upstream credits/licenses removed)
+- [ ] Upstream version and source commit are identified; any known missing files or limitations are noted
+- [ ] Claims about published npm packages or agent-host support are backed by reproducible checks
 
-> The **CI** and **Skill Lint** checks run automatically and will comment on this PR.
+> **CI** and **Skill Lint** require approval for some first-time fork contributors. Results appear in Actions job summaries; same-repository PRs may also receive a lint comment.
