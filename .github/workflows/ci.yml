@@ -15,14 +15,20 @@ jobs:
     name: Validate skills_index.json
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
 
       - name: Validate manifest against the skills/ tree
         run: python .github/scripts/validate_manifest.py
+
+      - name: Security regression tests and bundle consistency
+        run: |
+          python -B -m unittest discover -s tests -v
+          python -B .github/scripts/sync_bundles.py --check
+          node --test tests/*.test.mjs

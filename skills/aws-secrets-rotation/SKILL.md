@@ -13,6 +13,14 @@ date_added: "2026-02-27"
 Automate rotation of secrets, credentials, and API keys using AWS Secrets Manager and Lambda.
 
 ## When to Use
+
+Before accessing secret values, establish the authorized AWS account, secret
+ARNs, and purpose. An audit authorizes inspection of configuration and redacted
+metadata, not automatic retrieval of secret values. Rotating or revoking keys,
+changing access, or enabling schedules requires explicit user authorization
+covering those resources and possible service disruption. Reuse existing
+authorization within scope. Never print retrieved secrets or include them in
+reports; pass them directly to the authorized consumer.
 Use this skill when you need to implement automated secrets rotation, manage credentials securely, or comply with security policies requiring regular key rotation.
 
 ## Supported Secret Types

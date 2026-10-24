@@ -110,7 +110,19 @@ sudo apt install -y nodejs
 **Windows (using Chocolatey):**
 \`\`\`powershell
 # Install Chocolatey if not installed
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+# Download first; do not execute a remote response directly.
+Invoke-WebRequest https://community.chocolatey.org/install.ps1 -OutFile chocolatey-install.ps1
+Get-Content .\chocolatey-install.ps1
+
+\`\`\`
+
+Review the complete downloaded installer and verify its official source before
+execution. Installation and privilege changes require the user's explicit
+authorization; existing authorization for this setup applies. Then run the
+reviewed local file under the host's approved execution policy:
+
+\`\`\`powershell
+powershell -NoProfile -File .\chocolatey-install.ps1
 
 # Install Node.js
 choco install nodejs

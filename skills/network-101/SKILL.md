@@ -15,6 +15,12 @@ Configure and test common network services (HTTP, HTTPS, SNMP, SMB) for penetrat
 
 ## Inputs/Prerequisites
 
+- Use only user-authorized hosts and networks. The deliberately permissive service
+  and packet-capture examples belong in an isolated lab with synthetic accounts.
+  Do not deploy anonymous shares, disable certificate checks, capture other users'
+  credentials, or change firewall/service settings on production systems without
+  explicit authorization for those operations.
+
 - Windows Server or Linux system for hosting services
 - Kali Linux or similar for testing
 - Administrative access to target system

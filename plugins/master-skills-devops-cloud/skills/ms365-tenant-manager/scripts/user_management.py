@@ -7,6 +7,16 @@ from typing import Dict, List, Any, Optional
 from datetime import datetime
 
 
+def _ps_literal(value: str) -> str:
+    """Keep supplied user fields as PowerShell data, including quotes and $()."""
+    quoted = str(value)
+    # PowerShell accepts ASCII and all four typographic single quote forms as
+    # delimiters. Doubling each form preserves the character as literal data.
+    for quote in ("'", "\u2018", "\u2019", "\u201a", "\u201b"):
+        quoted = quoted.replace(quote, quote * 2)
+    return "'" + quoted + "'"
+
+
 class UserLifecycleManager:
     """Manage Microsoft 365 user lifecycle operations."""
 
@@ -50,6 +60,13 @@ Connect-MgGraph -Scopes "User.ReadWrite.All", "Directory.ReadWrite.All", "Group.
 Connect-ExchangeOnline
 
 # Define users to create
+function New-ProvisioningPassword {
+    $bytes = New-Object byte[] 32
+    $rng = [System.Security.Cryptography.RandomNumberGenerator]::Create()
+    try { $rng.GetBytes($bytes) } finally { $rng.Dispose() }
+    return [Convert]::ToBase64String($bytes) + 'aA1!'
+}
+
 $users = @(
 """
 
@@ -63,16 +80,16 @@ $users = @(
             license_sku = user.get('license_sku', 'Microsoft_365_Business_Standard')
 
             script += f"""    @{{
-        UserPrincipalName = "{upn}"
-        DisplayName = "{display_name}"
-        GivenName = "{first_name}"
-        Surname = "{last_name}"
-        JobTitle = "{job_title}"
-        Department = "{department}"
-        LicenseSku = "{license_sku}"
+        UserPrincipalName = {_ps_literal(upn)}
+        DisplayName = {_ps_literal(display_name)}
+        GivenName = {_ps_literal(first_name)}
+        Surname = {_ps_literal(last_name)}
+        JobTitle = {_ps_literal(job_title)}
+        Department = {_ps_literal(department)}
+        LicenseSku = {_ps_literal(license_sku)}
         UsageLocation = "US"
         PasswordProfile = @{{
-            Password = "ChangeMe@$(Get-Random -Minimum 1000 -Maximum 9999)"
+            Password = New-ProvisioningPassword
             ForceChangePasswordNextSignIn = $true
         }}
     }}
@@ -127,7 +144,7 @@ foreach ($user in $users) {
 }
 
 # Export results
-$users | Export-Csv -Path "UserCreation_Results_$(Get-Date -Format 'yyyyMMdd_HHmmss').csv" -NoTypeInformation
+$users | Select-Object * -ExcludeProperty PasswordProfile | Export-Csv -Path "UserCreation_Results_$(Get-Date -Format 'yyyyMMdd_HHmmss').csv" -NoTypeInformation
 
 # Disconnect
 Disconnect-MgGraph
@@ -152,7 +169,7 @@ Write-Host "`nUser provisioning complete!" -ForegroundColor Green
     User Offboarding Script - Secure Deprovisioning
 
 .DESCRIPTION
-    Securely offboards user: {user_email}
+    Securely offboards the user specified below.
     - Revokes access and signs out all sessions
     - Converts mailbox to shared (preserves emails)
     - Removes licenses
@@ -164,7 +181,9 @@ Write-Host "`nUser provisioning complete!" -ForegroundColor Green
 Connect-MgGraph -Scopes "User.ReadWrite.All", "Directory.ReadWrite.All"
 Connect-ExchangeOnline
 
-$userEmail = "{user_email}"
+$userEmail = {_ps_literal(user_email)}
+$supportEmail = {_ps_literal('support@' + self.domain)}
+$forwardingAddress = {_ps_literal('manager@' + self.domain)}
 $timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
 
 Write-Host "Starting offboarding for: $userEmail" -ForegroundColor Cyan
@@ -205,14 +224,11 @@ try {{
     Write-Host "✓ Mailbox converted to shared mailbox" -ForegroundColor Green
 
     # Step 7: Set up email forwarding (optional - update recipient as needed)
-    # Set-Mailbox -Identity $userEmail -ForwardingAddress "manager@{self.domain}"
+    # Set-Mailbox -Identity $userEmail -ForwardingAddress $forwardingAddress
     # Write-Host "✓ Email forwarding configured" -ForegroundColor Green
 
     # Step 8: Set auto-reply
-    $autoReplyMessage = @"
-Thank you for your email. This mailbox is no longer actively monitored as the employee has left the organization.
-For assistance, please contact: support@{self.domain}
-"@
+    $autoReplyMessage = 'Thank you for your email. This mailbox is no longer actively monitored as the employee has left the organization. For assistance, please contact: ' + $supportEmail
 
     Set-MailboxAutoReplyConfiguration -Identity $userEmail `
         -AutoReplyState Enabled `
@@ -246,7 +262,8 @@ For assistance, please contact: support@{self.domain}
         SessionsRevoked = $true
     }}
 
-    $offboardingReport | Export-Csv -Path "Offboarding_${{userEmail}}_$timestamp.csv" -NoTypeInformation
+    $reportUser = $userEmail -replace '[^A-Za-z0-9_.@-]', '_'
+    $offboardingReport | Export-Csv -Path "Offboarding_${{reportUser}}_$timestamp.csv" -NoTypeInformation
 
     Write-Host "`n✓ Offboarding completed successfully!" -ForegroundColor Green
     Write-Host "`nNext steps:" -ForegroundColor Cyan

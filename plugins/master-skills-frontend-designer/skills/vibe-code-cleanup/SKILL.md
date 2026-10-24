@@ -152,7 +152,8 @@ export function buildPageMetadata({ title, description, path, image }) {
 grep -r "process\.env\." --include="*.{js,ts,jsx,tsx}" . | grep -oP 'process\.env\.\w+' | sort -u
 
 # Compare against .env.example or .env.local
-cat .env.example 2>/dev/null || cat .env.local 2>/dev/null
+# Inspect variable names without exposing local credential values.
+awk -F= '/^[A-Za-z_][A-Za-z0-9_]*=/ { print $1 "=<redacted>" }' .env.example .env.local 2>/dev/null
 ```
 
 Flag any env vars used in code but missing from `.env.example`. Never add secrets to version control.

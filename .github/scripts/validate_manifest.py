@@ -79,6 +79,15 @@ def main() -> int:
             err(f"{sid}: trigger should start with '/': {trig!r}")
 
     # 7. declared categories map matches computed counts
+    actual_ids = {
+        entry.name for entry in os.scandir(os.path.join(ROOT, "skills"))
+        if entry.is_dir() and any(name.lower() == "skill.md" for name in os.listdir(entry.path))
+    }
+    for sid in sorted(actual_ids - seen_ids):
+        err(f"skill directory missing from manifest: {sid}")
+    for sid in sorted(seen_ids - actual_ids):
+        err(f"manifest id has no matching skill directory: {sid}")
+
     declared = manifest.get("categories", {})
     if declared != dict(sorted(cat_counts.items())) and dict(declared) != cat_counts:
         # compare key/value sets order-independently

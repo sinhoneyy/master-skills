@@ -1,0 +1,4 @@
+# Private local audit artifacts; all shipped skills remain available to agents.
+audit-input/
+__pycache__/
+*.pyc
