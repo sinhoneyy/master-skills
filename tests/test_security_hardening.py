@@ -1,8 +1,12 @@
 import importlib.util
+import json
 from pathlib import Path
+import shutil
+import subprocess
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
+POWERSHELL = shutil.which('pwsh') or shutil.which('powershell')
 
 
 def load(relative):
@@ -52,6 +56,31 @@ class ProvisioningSecurityTests(unittest.TestCase):
             dict(username='user', display_name=value, department=value, license_sku=value)])
         for field in ('DisplayName', 'Department', 'LicenseSku'):
             self.assertIn(field + ' = ' + quoted, script)
+
+    @unittest.skipUnless(POWERSHELL, 'PowerShell parser is not installed')
+    def test_all_powershell_quote_forms_remain_literal_in_the_real_parser(self):
+        cases = []
+        for quote in ("'", '\u2018', '\u2019', '\u201a', '\u201b'):
+            value = quote + '; Write-Error PWNED; #\n$(Write-Error PWNED)`"'
+            cases.append(dict(value=value, literal=self.module._ps_literal(value)))
+        parser_script = r'''
+[Console]::InputEncoding = New-Object System.Text.UTF8Encoding
+$cases = [Console]::In.ReadToEnd() | ConvertFrom-Json
+foreach ($case in $cases) {
+    $errors = $null
+    $tokens = $null
+    $tree = [System.Management.Automation.Language.Parser]::ParseInput($case.literal, [ref]$tokens, [ref]$errors)
+    $commands = $tree.FindAll({param($n) $n -is [System.Management.Automation.Language.CommandAst]}, $true)
+    $literal = $tree.Find({param($n) $n -is [System.Management.Automation.Language.StringConstantExpressionAst]}, $true)
+    if ($errors.Count -ne 0 -or $commands.Count -ne 0 -or $literal.Value -cne $case.value) {
+        throw 'Quoted input escaped its literal or lost data'
+    }
+}
+'''
+        result = subprocess.run([POWERSHELL, '-NoProfile', '-NonInteractive', '-Command', parser_script],
+                                input=json.dumps(cases), text=True, encoding='utf-8',
+                                capture_output=True, timeout=30)
+        self.assertEqual(result.returncode, 0, result.stderr)
 
     def test_provisioning_uses_crypto_randomness_and_redacts_export(self):
         script = self.module.UserLifecycleManager('example.invalid').generate_user_creation_script([{}])

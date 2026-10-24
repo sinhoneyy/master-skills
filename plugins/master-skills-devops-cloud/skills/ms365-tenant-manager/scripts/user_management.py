@@ -9,7 +9,12 @@ from datetime import datetime
 
 def _ps_literal(value: str) -> str:
     """Keep supplied user fields as PowerShell data, including quotes and $()."""
-    return "'" + str(value).replace("'", "''") + "'"
+    quoted = str(value)
+    # PowerShell accepts ASCII and all four typographic single quote forms as
+    # delimiters. Doubling each form preserves the character as literal data.
+    for quote in ("'", "\u2018", "\u2019", "\u201a", "\u201b"):
+        quoted = quoted.replace(quote, quote * 2)
+    return "'" + quoted + "'"
 
 
 class UserLifecycleManager:
