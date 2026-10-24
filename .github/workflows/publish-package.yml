@@ -1,4 +1,4 @@
-name: Publish to npm
+name: Publish Packages
 
 on:
   release:
@@ -23,6 +23,45 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: Publish
-        run: npm publish --access public
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if npm view "master-skills@$version" version --registry https://registry.npmjs.org --json > "$RUNNER_TEMP/npm-version.json" 2> "$RUNNER_TEMP/npm-version-error.log"; then
+            echo "master-skills@$version is already published; keeping the immutable version."
+          else
+            npm publish --registry https://registry.npmjs.org --access public --ignore-scripts
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-github:
+    name: Publish scoped mirror to GitHub Packages
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "20"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@sinhoneyy"
+
+      # Keep the unscoped npm/CLI identity in source. Only this isolated
+      # publishing job uses the existing GitHub Packages scoped identity.
+      - name: Prepare GitHub Packages name
+        run: npm pkg set name="@sinhoneyy/master-skills"
+
+      - name: Publish GitHub Packages mirror
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if npm view "@sinhoneyy/master-skills@$version" version --registry https://npm.pkg.github.com --json > "$RUNNER_TEMP/github-version.json" 2> "$RUNNER_TEMP/github-version-error.log"; then
+            echo "@sinhoneyy/master-skills@$version is already published; keeping the immutable version."
+          else
+            npm publish --registry https://npm.pkg.github.com --access public --ignore-scripts
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

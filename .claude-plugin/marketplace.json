@@ -6,12 +6,12 @@
   },
   "metadata": {
     "description": "Master Skills — the full catalog plus curated role bundles.",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "plugins": [
     {
       "name": "master-skills",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "2,658 skills across 15 domains for Claude Code, Codex, and Antigravity — any SKILL.md agent.",
       "author": {
         "name": "master-skills",
@@ -32,7 +32,7 @@
     },
     {
       "name": "master-skills-security-engineer",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Security Engineer bundle — 98 curated skills (security) for Claude Code, Codex & Antigravity.",
       "author": {
         "name": "master-skills",
@@ -53,7 +53,7 @@
     },
     {
       "name": "master-skills-frontend-designer",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Frontend & Design bundle — 227 curated skills (web-frontend, design-ux) for Claude Code, Codex & Antigravity.",
       "author": {
         "name": "master-skills",
@@ -75,7 +75,7 @@
     },
     {
       "name": "master-skills-backend-engineer",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Backend & Data bundle — 310 curated skills (backend, data-db) for Claude Code, Codex & Antigravity.",
       "author": {
         "name": "master-skills",
@@ -97,7 +97,7 @@
     },
     {
       "name": "master-skills-devops-cloud",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "DevOps & Cloud bundle — 160 curated skills (devops-cloud) for Claude Code, Codex & Antigravity.",
       "author": {
         "name": "master-skills",
@@ -118,7 +118,7 @@
     },
     {
       "name": "master-skills-ai-agent-builder",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "AI & Agents bundle — 388 curated skills (agents, ai-ml, prompt-engineering) for Claude Code, Codex & Antigravity.",
       "author": {
         "name": "master-skills",
@@ -141,7 +141,7 @@
     },
     {
       "name": "master-skills-marketing-growth",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Marketing & Growth bundle — 123 curated skills (content-marketing) for Claude Code, Codex & Antigravity.",
       "author": {
         "name": "master-skills",
@@ -162,7 +162,7 @@
     },
     {
       "name": "master-skills-mobile-developer",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Mobile Developer bundle — 14 curated skills (mobile) for Claude Code, Codex & Antigravity.",
       "author": {
         "name": "master-skills",
@@ -183,7 +183,7 @@
     },
     {
       "name": "master-skills-qa-testing",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "QA & Testing bundle — 53 curated skills (testing) for Claude Code, Codex & Antigravity.",
       "author": {
         "name": "master-skills",
@@ -204,7 +204,7 @@
     },
     {
       "name": "master-skills-productivity",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Productivity & Docs bundle — 52 curated skills (productivity) for Claude Code, Codex & Antigravity.",
       "author": {
         "name": "master-skills",
@@ -225,7 +225,7 @@
     },
     {
       "name": "master-skills-integrations",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Integrations bundle — 812 curated skills (integrations) for Claude Code, Codex & Antigravity.",
       "author": {
         "name": "master-skills",
