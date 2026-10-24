@@ -1,6 +1,6 @@
 {
   "name": "master-skills",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Install 2,658 AI-agent skills into Claude, Cursor, Gemini, Codex, Antigravity, Kiro and more — one command, 15 domains.",
   "type": "module",
   "bin": {
@@ -32,6 +32,7 @@
     "skills/",
     "skills_index.json",
     "CREDITS.md",
+    "SECURITY.md",
     "README.md"
   ]
 }
