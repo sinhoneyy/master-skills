@@ -56,7 +56,7 @@ function readRisk(id) {
   } catch { return "unknown"; }
 }
 
-function help() {
+function help(skillCount) {
   console.log(`${C.b}master-skills${C.x} — 2,658 skills for any AI agent\n`);
   console.log(`${C.b}Usage${C.x}\n  npx master-skills --<tool> [--category a,b] [--risk safe,none] [--dry-run]`);
   console.log(`  npx master-skills --path <dir> [...filters]\n`);
@@ -72,9 +72,8 @@ function help() {
 
 function main() {
   const args = parseArgs(process.argv.slice(2));
-  if (args.help || (!args.tool && !args.path && !args.list)) return help();
-
   const index = JSON.parse(fs.readFileSync(INDEX, "utf8"));
+  if (args.help || (!args.tool && !args.path && !args.list)) return help(index.skill_count);
 
   if (args.list) {
     const cats = Object.entries(index.categories).sort((a, b) => b[1] - a[1]);
