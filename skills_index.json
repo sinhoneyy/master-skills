@@ -7,7 +7,8 @@
     "alirezarezvani/claude-skills",
     "sickn33/antigravity-awesome-skills",
     "ComposioHQ/awesome-claude-skills",
-    "nidhinjs/prompt-master"
+    "nidhinjs/prompt-master",
+    "cis2042/ux3-product-design-harness"
   ],
   "dedup_priority": [
     "alirezarezvani/claude-skills",
@@ -15,7 +16,7 @@
     "ComposioHQ/awesome-claude-skills",
     "nidhinjs/prompt-master"
   ],
-  "skill_count": 2658,
+  "skill_count": 2659,
   "categories": {
     "agents": 154,
     "ai-ml": 41,
@@ -24,7 +25,7 @@
     "data-db": 77,
     "design-ux": 84,
     "devops-cloud": 160,
-    "general": 421,
+    "general": 422,
     "integrations": 812,
     "mobile": 14,
     "productivity": 52,
@@ -30642,6 +30643,17 @@
       "trigger": "/zod-validation-expert",
       "source": "sickn33/antigravity-awesome-skills",
       "path": "skills/zod-validation-expert"
+    },
+    {
+      "id": "product-design-harness",
+      "name": "product-design-harness",
+      "version": "0.2.0",
+      "description": "Use when a product direction, feature, workflow, experiment, launch, feedback signal, automation, or scale decision needs judgment before execution or the next iteration.",
+      "category": "general",
+      "tags": [],
+      "trigger": "/product-design-harness",
+      "source": "cis2042/ux3-product-design-harness",
+      "path": "skills/product-design-harness"
     }
   ]
 }
