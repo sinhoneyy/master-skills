@@ -295,7 +295,7 @@ PRs are welcome! Good first contributions:
 
 > Once GitHub Actions is approved (when required for first-time fork contributors), CI
 > validates the manifest and lints changed `SKILL.md` files. Lint results appear
-> in the Actions job summary; fork PRs may not receive an automated comment.
+> in the Actions job summary. Comments are not posted by CI.
 
 ---
 
@@ -315,8 +315,7 @@ repository structure and, for supported imports, bundled examples plus an
 isolated local npm package/install smoke test. Host-specific behavior and
 external services require separate verification and any necessary user
 authorization. Fork PR lint results are always available in the GitHub Actions
-job summary; PR comment publication may be unavailable for read-only fork
-tokens.
+job summary. Lint reporting uses no PR-comment API or write token.
 
 <div align="center">
 <br/>
