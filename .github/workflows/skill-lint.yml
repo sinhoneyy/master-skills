@@ -29,7 +29,7 @@ jobs:
         id: changed
         run: |
           base="${{ github.event.pull_request.base.sha }}"
-          git diff --name-only --diff-filter=ACM "$base" "${{ github.sha }}" -- '**/SKILL.md' > changed.txt || true
+          git diff --name-only --diff-filter=ACM "$base" "${{ github.sha }}" -- '**/SKILL.md' > changed.txt
           echo "Changed SKILL.md files:"; cat changed.txt
           echo "count=$(grep -c . changed.txt || true)" >> "$GITHUB_OUTPUT"
 
@@ -40,8 +40,18 @@ jobs:
           mapfile -t files < changed.txt
           python .github/scripts/lint_skill.py "${files[@]}"
 
-      - name: Comment results on PR
+      # Fork pull_request tokens are read-only: reporting must never fail lint.
+      - name: Publish lint report to Actions summary
         if: always()
+        run: |
+          if [[ -f lint-report.md ]]; then
+            cat lint-report.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No lint report generated." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Comment results on PR
+        if: ${{ always() && github.event.pull_request.head.repo.full_name == github.repository }}
         uses: actions/github-script@v7
         with:
           script: |
@@ -64,5 +74,5 @@ jobs:
       - name: Fail if lint found blocking errors
         if: steps.lint.outcome == 'failure'
         run: |
-          echo "Skill lint reported blocking errors. See the PR comment."
+          echo "Skill lint reported blocking errors. See the Actions job summary."
           exit 1
