@@ -13,6 +13,10 @@ To test local web applications, write native Python Playwright scripts.
 **Helper Scripts Available**:
 - `scripts/with_server.py` - Manages server lifecycle (supports multiple servers)
 
+> Master Skills modification (2026-10-24): the helper execution guidance below
+> adds source review and authorization boundaries. Upstream Apache-2.0 terms
+> and notices are retained in LICENSE.txt.
+
 Review a helper's source and provenance before executing it when trust or safety
 is uncertain; help output is not a security check. Once reviewed, use `--help` to
 see its interface. `with_server.py` deliberately executes user-supplied server
