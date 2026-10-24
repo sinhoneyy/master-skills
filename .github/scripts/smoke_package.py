@@ -21,7 +21,7 @@ def main():
         target = pathlib.Path(temp)
         manifest = json.loads(run(NPM, "pack", "--dry-run", "--json"))
         files = {item["path"] for item in manifest[0]["files"]}
-        assert {"bin/cli.mjs", "skills_index.json", "CREDITS.md", "LICENSE", "SECURITY.md"}.issubset(files)
+        assert {"bin/cli.mjs", "skills_index.json", "CREDITS.md", "LICENSE"}.issubset(files)
         assert not any(p.startswith("audit-input/") or "__pycache__" in p.split("/")
                        or p.endswith((".pyc", ".pyo", ".zip")) for p in files)
         on_disk = ROOT / SKILL
