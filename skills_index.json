@@ -15,12 +15,12 @@
     "ComposioHQ/awesome-claude-skills",
     "nidhinjs/prompt-master"
   ],
-  "skill_count": 2659,
+  "skill_count": 2660,
   "categories": {
     "agents": 154,
     "ai-ml": 41,
     "backend": 233,
-    "content-marketing": 123,
+    "content-marketing": 124,
     "data-db": 77,
     "design-ux": 84,
     "devops-cloud": 160,
@@ -30653,6 +30653,14 @@
       "trigger": "/zod-validation-expert",
       "source": "sickn33/antigravity-awesome-skills",
       "path": "skills/zod-validation-expert"
+    },
+    {
+      "id": "bulkpublish-social-publishing",
+      "name": "bulkpublish-social-publishing",
+      "description": "Create, review, schedule, and publish approved social-media content through BulkPublish API or hosted MCP.",
+      "category": "content-marketing",
+      "trigger": "/bulkpublish-social-publishing",
+      "path": "skills/bulkpublish-social-publishing"
     }
   ]
 }
