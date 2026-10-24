@@ -1,4 +1,0 @@
-# Runtime-generated Python artifacts must never enter published skills.
-**/__pycache__/
-**/*.pyc
-**/*.pyo
