@@ -18,7 +18,7 @@ jobs:
           persist-credentials: false
       # Same action, scanner 3.0.123, and settings as centralized run 40103003701.
       # The action verifies the scanner wheel hash and PyPI provenance.
-      - uses: hashgraph-online/ai-plugin-scanner-action@8ed9b2b11cf4f242ea752117128956fcd9cca5d1 # v1.2.797
+      - uses: hashgraph-online/ai-plugin-scanner-action@013b123a036a252a6d74ddb52836ee923498150c # v1.2.817
         with:
           plugin_dir: .
           mode: scan
